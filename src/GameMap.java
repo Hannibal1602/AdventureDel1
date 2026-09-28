@@ -43,7 +43,28 @@ public class GameMap {
             room8.setNorth(room5);
             room5.setSouth(room8);
 
+            Item lamp = new Item("lamp", "a shiny brass lamp");
+            Item sword = new Item("sword", "a big sword");
+            Item hat = new Item("hat", "a magical hat");
+            Item coins = new Item("coins", "a stack of gold coins");
+            Item beef = new Item("beef", "a juicy beefsteak");
+            Item diamonds = new Item("diamonds", "a chest full of diamonds");
+            Item key = new Item("key", "an old rusty key");
+            Item crossbow = new Item("crossbow", "a wooden crossbow");
+            Item apple = new Item("apple", "a golden apple");
+
+            room1.addItem(lamp);
+            room2.addItem(sword);
+            room3.addItem(hat);
+            room4.addItem(coins);
+            room6.addItem(beef);
+            room5.addItem(diamonds);
+            room7.addItem(key);
+            room8.addItem(crossbow);
+            room9.addItem(apple);
+
             return room1; // startrummet, som Adventure skal bruge
         }
-    }
+
+}
 
