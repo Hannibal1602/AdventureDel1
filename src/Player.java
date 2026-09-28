@@ -67,5 +67,19 @@ public class Player {
     public ArrayList<Item> getInventory() {
         return inventory;
     }
+    public String look() {
+        return currentRoom.describe();
+    }
+
+    public String describeInventory() {
+        if (inventory.isEmpty()) {
+            return "You are not carrying anything";
+        }
+        String text = "You are carrying:";
+        for (Item item : inventory) {
+            text += "\n  " + item.getLongName();
+        }
+        return text;
+    }
 }
 

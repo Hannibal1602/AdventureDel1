@@ -4,74 +4,79 @@ import java.util.ArrayList;
 public class UserInterface {
 
     private Scanner scan = new Scanner(System.in);
+    private Adventure adventure = new Adventure();
 
-    public void printWelcome() {
+    public void startProgram() {
         System.out.println("Game start");
-    }
+        System.out.println(adventure.look());
 
-    public void printGoodbye() {
-        System.out.println("Goodbye");
-    }
+        boolean running = true;
 
-    public void printRoom(Room room) {
-        System.out.println("You are in " + room.getName());
-        System.out.println(room.getDescription());
-        printItems(room.getItems());
-    }
-    public void printItems(ArrayList<Item> items) {
-        if (!items.isEmpty()) {
-            System.out.println("Items:");
-            for (Item item : items) {
-                System.out.println("  " + item.getLongName());
+        while (running) {
+            String command = scan.nextLine();
+
+            switch (command) {
+                case "look" -> System.out.println(adventure.look());
+                case "inventory" -> System.out.println(adventure.inventory());
+                case "help" -> printHelp();
+                case "exit" -> {
+                    System.out.println("Goodbye");
+                    running = false;
+                }
+                default -> handleCommandWithArgument(command);
             }
         }
     }
 
-    public void printCannotGoThatWay() {
-        System.out.println("You cannot go that way");
+    private void handleCommandWithArgument(String command) {
+        if (command.startsWith("go ")) {
+            go(command.substring(3));
+        } else if (command.startsWith("take ")) {
+            take(command.substring(5));
+        } else if (command.startsWith("drop ")) {
+            drop(command.substring(5));
+        } else {
+            System.out.println("Unknown command");
+        }
     }
 
-    public void printHelp() {
+    private void go(String direction) {
+        if (adventure.go(direction)) {
+            System.out.println(adventure.look());
+        } else {
+            System.out.println("You cannot go that way");
+        }
+    }
+
+    private void take(String shortName) {
+        String taken = adventure.take(shortName);
+        if (taken != null) {
+            System.out.println("You took " + taken);
+        } else {
+            System.out.println("There is no such item");
+        }
+    }
+
+    private void drop(String shortName) {
+        String dropped = adventure.drop(shortName);
+        if (dropped != null) {
+            System.out.println("You dropped " + dropped);
+        } else {
+            System.out.println("There is no such item");
+        }
+    }
+
+    private void printHelp() {
         System.out.println("go north");
         System.out.println("go east");
         System.out.println("go south");
         System.out.println("go west");
-        System.out.println("exit");
+        System.out.println("take <item>");
+        System.out.println("drop <item>");
         System.out.println("look");
+        System.out.println("inventory");
         System.out.println("help");
-        System.out.println("take");
-        System.out.println("drop");
-    }
-
-    public String getCommand() {
-        return scan.nextLine();
-    }
-
-    public String extractDirection(String command) {
-        return command.replace("go ", "");
-    }
-
-    public void printTaken(Item item) {
-        System.out.println("You took " + item.getLongName());
-    }
-    public void printDropped(Item item) {
-        System.out.println("You dropped " + item.getLongName());
-    }
-    public void printNoSuchItem() {
-        System.out.println("There is no such item");
-    }
-    public void printUnknownCommand() {
-        System.out.println("Unknown command");
-    }
-    public void printInventory(ArrayList<Item> inventory) {
-        if (inventory.isEmpty()) {
-            System.out.println("You are not carrying anything");
-        } else {
-            System.out.println("You are carrying:");
-            for (Item item : inventory) {
-                System.out.println("  " + item.getLongName());
-            }
-        }
+        System.out.println("exit");
     }
 }
 

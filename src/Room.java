@@ -65,6 +65,15 @@ public class Room {
         }
         return null;   // ingen item med det navn i rummet
     }
-
+    public String describe() {
+        String text = "You are in " + name + "\n" + description;
+        if (!items.isEmpty()) {
+            text += "\nItems:";
+            for (Item item : items) {
+                text += "\n  " + item.getLongName();
+            }
+        }
+        return text;
+    }
 
 }
