@@ -42,5 +42,12 @@ public class Adventure {
     public String health(){
         return player.describeHealth();
     }
+    public String equip(String shortName) {
+        return player.equip(shortName);
+    }
+
+    public String attack() {
+        return player.attack();
+    }
 
 }

@@ -20,9 +20,11 @@ public class UserInterface {
                 case "inventory" -> System.out.println(adventure.inventory());
                 case "health" -> System.out.println(adventure.health());
                 case "help" -> printHelp();
+                case "attack" -> System.out.println(adventure.attack());
                 case "exit" -> {
                     System.out.println("Goodbye");
                     running = false;
+
                 }
                 default -> handleCommandWithArgument(command);
             }
@@ -40,9 +42,12 @@ public class UserInterface {
             take(command.substring(5));
         } else if (command.startsWith("drop ")) {
             drop(command.substring(5));
+        } else if (command.startsWith("equip ")) {
+            equip(command.substring(6));
         } else {
             System.out.println("Unknown command");
         }
+
     }
 
     private void go(String direction) {
@@ -94,6 +99,14 @@ public class UserInterface {
             case NOT_FOUND -> System.out.println("You can't find that item");
             case EATEN -> System.out.println("You ate the " + shortName);
 
+        }
+    }
+    private void equip(String shortName) {
+        String equipped = adventure.equip(shortName);
+        if (equipped != null) {
+            System.out.println("You equip " + equipped);
+        } else {
+            System.out.println("You don't have that item");
         }
     }
 

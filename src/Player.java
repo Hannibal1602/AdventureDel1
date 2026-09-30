@@ -127,6 +127,27 @@ public class Player {
         }
         return "health: " + health + " - " + text;
     }
+    private Weapon equipped;
+
+    public String equip(String shortName) {
+        Item item = findItem(shortName);   // leder i inventory
+        if (item instanceof Weapon weapon) {
+            equipped = weapon;
+            return weapon.getLongName();
+        }
+        return null;
+    }
+
+    public String attack() {
+        if (equipped == null) {
+            return "You have no weapon equipped";
+        }
+        if (!equipped.canUse()) {
+            return "Your weapon is out of ammunition";
+        }
+        equipped.use();
+        return "You attack with " + equipped.getLongName() + " (" + equipped.getDamage() + " damage)";
+    }
 
 }
 
