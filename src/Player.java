@@ -113,5 +113,21 @@ public class Player {
         return health;
     }
 
+    public String describeHealth(){
+        String text;
+        if(health >= 100){
+            text = "You are in perfect health";
+        } else if(health >= 50) {
+            text = "You are in good health, but avoid fighting right now";
+        } else if(health >= 25) {
+            text = "You are wounded, find something healthy to eat";
+        } else if(health >= 1) {
+            text = "You are barely alive";
+        } else {
+            text = "You should be dead";
+        }
+        return "Health" + health + " - " + text;
+    }
+
 }
 
