@@ -18,7 +18,7 @@ public class UserInterface {
             switch (command) {
                 case "look" -> System.out.println(adventure.look());
                 case "inventory" -> System.out.println(adventure.inventory());
-                case "health" -> System.out.println(adventure.getHealth());
+                case "health" -> System.out.println(adventure.health());
                 case "help" -> printHelp();
                 case "exit" -> {
                     System.out.println("Goodbye");
