@@ -39,8 +39,8 @@ public class Adventure {
         return player.eat(shortName);
     }
 
-    public int getHealth(){
-        return player.getHealth();
+    public String getHealth(){
+        return player.describeHealth();
     }
 
 }
