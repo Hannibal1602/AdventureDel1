@@ -46,6 +46,7 @@ public class GameMap {
             Item lamp = new Item("lamp", "a shiny brass lamp");
             Item sword = new Item("sword", "a big sword");
             Item hat = new Item("hat", "a magical hat");
+            Food mushroom = new Food("mushroom", "a glowing mushroom",-30);
             Item coins = new Item("coins", "a stack of gold coins");
             Food beef = new Food("beef", "a juicy beefsteak", 30);
             Item diamonds = new Item("diamonds", "a chest full of diamonds");
@@ -56,6 +57,7 @@ public class GameMap {
             room1.addItem(lamp);
             room2.addItem(sword);
             room3.addItem(hat);
+            room3.addItem(mushroom);
             room4.addItem(coins);
             room6.addItem(beef);
             room5.addItem(diamonds);
