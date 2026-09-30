@@ -18,6 +18,7 @@ public class UserInterface {
             switch (command) {
                 case "look" -> System.out.println(adventure.look());
                 case "inventory" -> System.out.println(adventure.inventory());
+                case "health" -> System.out.println(adventure.getHealth());
                 case "help" -> printHelp();
                 case "exit" -> {
                     System.out.println("Goodbye");
@@ -31,7 +32,11 @@ public class UserInterface {
     private void handleCommandWithArgument(String command) {
         if (command.startsWith("go ")) {
             go(command.substring(3));
-        } else if (command.startsWith("take ")) {
+        }
+        else if(command.startsWith("eat ")){
+            eat(command.substring(4));
+        }
+        else if (command.startsWith("take ")) {
             take(command.substring(5));
         } else if (command.startsWith("drop ")) {
             drop(command.substring(5));
@@ -76,7 +81,21 @@ public class UserInterface {
         System.out.println("look");
         System.out.println("inventory");
         System.out.println("help");
+        System.out.println("health");
+        System.out.println("eat");
         System.out.println("exit");
     }
+
+    private void eat(String shortName) {
+        EatResult result = adventure.eat(shortName);
+
+        switch (result) {
+            case NOT_FOOD -> System.out.println("That item is not a food");
+            case NOT_FOUND -> System.out.println("You can't find that item");
+            case EATEN -> System.out.println("You ate the " + shortName);
+
+        }
+    }
+
 }
 

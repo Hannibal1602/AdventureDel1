@@ -34,4 +34,13 @@ public class Adventure {
         }
         return item.getLongName();
     }
+
+    public EatResult eat(String shortName) {
+        return player.eat(shortName);
+    }
+
+    public int getHealth(){
+        return player.getHealth();
+    }
+
 }

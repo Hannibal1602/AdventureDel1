@@ -1,6 +1,6 @@
 public class Item {
-    private String shortName;
-    private String longName;
+    protected String shortName;
+    protected String longName;
 
     public Item(String shortName, String longName){
         this.shortName = shortName;
@@ -15,6 +15,8 @@ public class Item {
     public String getLongName(){
         return longName;
     }
+
+
 
 
 
