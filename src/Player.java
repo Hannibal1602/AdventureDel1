@@ -91,27 +91,33 @@ public class Player {
         return text;
     }
 
-    public EatResult eat(String shortName){
+    public EatResult eat(String shortName) {
         Item item = findItem(shortName);
-        if(item == null){
+        boolean fromInventory = item != null;
+
+        if (!fromInventory) {
             item = currentRoom.findItem(shortName);
         }
-        if(item == null){
+        if (item == null) {
             return EatResult.NOT_FOUND;
         }
-        if(!(item instanceof Food)){
+        if (!(item instanceof Food)) {
             return EatResult.NOT_FOOD;
         }
+
         Food food = (Food) item;
         health += food.getHealthPoints();
-        removeItem(food);
-        currentRoom.removeItem(food);
+
+        if (fromInventory) {
+            removeItem(food);
+        } else {
+            currentRoom.removeItem(food);
+        }
         return EatResult.EATEN;
     }
 
-    public int getHealth(){
+    public int getHealth() {
         return health;
     }
 
 }
-
