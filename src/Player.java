@@ -4,7 +4,7 @@ public class Player {
 
     private Room currentRoom;
 
-    private int health;
+    private int health = 100;
 
     public void setCurrentRoom(Room room) {
         currentRoom = room;
