@@ -44,14 +44,14 @@ public class GameMap {
             room5.setSouth(room8);
 
             Item lamp = new Item("lamp", "a shiny brass lamp");
-            Item sword = new Item("sword", "a big sword");
+            MeleeWeapon sword = new MeleeWeapon("sword", "a big sword", 30);
             Item hat = new Item("hat", "a magical hat");
             Food mushroom = new Food("mushroom", "a glowing mushroom",-30);
             Item coins = new Item("coins", "a stack of gold coins");
             Food beef = new Food("beef", "a juicy beefsteak", 30);
             Item diamonds = new Item("diamonds", "a chest full of diamonds");
             Item key = new Item("key", "an old rusty key");
-            Item crossbow = new Item("crossbow", "a wooden crossbow");
+            RangedWeapon crossbow = new RangedWeapon("crossbow", "a wooden crossbow", 20,5);
             Food apple = new Food("apple", "a golden apple", 50);
             Food bread = new Food("bread", "a loaf og bread", 10);
 
