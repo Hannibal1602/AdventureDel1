@@ -30,7 +30,6 @@ public class Player {
 
     }
     private ArrayList<Item> inventory = new ArrayList<>();
-
     public void addItem(Item item) {
         inventory.add(item);
     }

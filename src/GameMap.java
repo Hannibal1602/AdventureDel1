@@ -52,6 +52,8 @@ public class GameMap {
             Item key = new Item("key", "an old rusty key");
             Item crossbow = new Item("crossbow", "a wooden crossbow");
             Food apple = new Food("apple", "a golden apple", 50);
+            Food bread = new Food("bread", "a loaf og bread", 10);
+
 
             room1.addItem(lamp);
             room2.addItem(sword);
@@ -62,6 +64,7 @@ public class GameMap {
             room7.addItem(key);
             room8.addItem(crossbow);
             room9.addItem(apple);
+            room2.addItem(bread);
 
             return room1; // startrummet, som Adventure skal bruge
         }
