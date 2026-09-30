@@ -47,11 +47,11 @@ public class GameMap {
             Item sword = new Item("sword", "a big sword");
             Item hat = new Item("hat", "a magical hat");
             Item coins = new Item("coins", "a stack of gold coins");
-            Item beef = new Item("beef", "a juicy beefsteak");
+            Food beef = new Food("beef", "a juicy beefsteak", 30);
             Item diamonds = new Item("diamonds", "a chest full of diamonds");
             Item key = new Item("key", "an old rusty key");
             Item crossbow = new Item("crossbow", "a wooden crossbow");
-            Item apple = new Item("apple", "a golden apple");
+            Food apple = new Food("apple", "a golden apple", 50);
 
             room1.addItem(lamp);
             room2.addItem(sword);
