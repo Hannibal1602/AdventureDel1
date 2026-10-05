@@ -6,6 +6,10 @@ public class Player {
 
     private int health = 100;
 
+    private ArrayList<Item> inventory = new ArrayList<>();
+
+    private Weapon equipped;
+
     public void setCurrentRoom(Room room) {
         currentRoom = room;
     }
@@ -29,10 +33,8 @@ public class Player {
         } else {
             return false;
         }
-
     }
 
-    private ArrayList<Item> inventory = new ArrayList<>();
     public void addItem(Item item) {
         inventory.add(item);
     }
@@ -68,6 +70,9 @@ public class Player {
         if (item != null) {
             inventory.remove(item);
             currentRoom.addItem(item);
+            if (item == equipped) {
+                equipped = null;
+            }
         }
         return item;
     }
@@ -88,18 +93,21 @@ public class Player {
         for (Item item : inventory) {
             text += "\n  " + item.getLongName();
         }
+        if (equipped != null) {
+            text += "\nEquipped: " + equipped.getLongName();
+        }
         return text;
     }
 
-    public EatResult eat(String shortName){
+    public EatResult eat(String shortName) {
         Item item = findItem(shortName);
-        if(item == null){
+        if (item == null) {
             item = currentRoom.findItem(shortName);
         }
-        if(item == null){
+        if (item == null) {
             return EatResult.NOT_FOUND;
         }
-        if(!(item instanceof Food)){
+        if (!(item instanceof Food)) {
             return EatResult.NOT_FOOD;
         }
         Food food = (Food) item;
@@ -109,9 +117,10 @@ public class Player {
         return EatResult.EATEN;
     }
 
-    public int getHealth(){
+    public int getHealth() {
         return health;
     }
+
     public String describeHealth() {
         String text;
         if (health >= 100) {
@@ -127,15 +136,17 @@ public class Player {
         }
         return "health: " + health + " - " + text;
     }
-    private Weapon equipped;
 
     public String equip(String shortName) {
-        Item item = findItem(shortName);   // leder i inventory
-        if (item instanceof Weapon weapon) {
-            equipped = weapon;
-            return weapon.getLongName();
+        Item item = findItem(shortName);
+        if (item == null) {
+            return "You don't have that";
         }
-        return null;
+        if (!(item instanceof Weapon weapon)) {
+            return item.getLongName() + " is not a weapon";
+        }
+        equipped = weapon;
+        return "You have equipped " + weapon.getLongName();
     }
 
     public String attack() {
@@ -146,8 +157,7 @@ public class Player {
             return "Your weapon is out of ammunition";
         }
         equipped.use();
-        return "You attack with " + equipped.getLongName() + " (" + equipped.getDamage() + " damage)";
+        return "You " + equipped.getAttackVerb() + " " + equipped.getLongName()
+                + " at the empty air. " + equipped.getUsesLeftText();
     }
-
 }
-

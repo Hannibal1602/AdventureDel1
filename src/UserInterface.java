@@ -102,12 +102,7 @@ public class UserInterface {
         }
     }
     private void equip(String shortName) {
-        String equipped = adventure.equip(shortName);
-        if (equipped != null) {
-            System.out.println("You equip " + equipped);
-        } else {
-            System.out.println("You don't have that item");
-        }
+        System.out.println(adventure.equip(shortName));
     }
 
 }
