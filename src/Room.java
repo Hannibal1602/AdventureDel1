@@ -47,7 +47,7 @@ public class Room {
     private ArrayList<Item> items = new ArrayList<>();
     private ArrayList<Enemy> enemies = new ArrayList<>();
 
-    public ArrayList<Enemy> getEnemies(){
+    public ArrayList<Enemy>  getEnemies(){
         return enemies;
     }
     public void addEnemy(Enemy enemy){
@@ -92,7 +92,13 @@ public class Room {
                 text += "\n  " + item.getLongName();
             }
         }
+        if (!enemies.isEmpty()) {
+            text += "\nBeware! Here lurks:";
+            for (Enemy enemy : enemies) {
+                text += "\n  " + enemy.getLongName();
+                text += "\n" + enemy.getDescription();
+            }
+        }
         return text;
     }
-
 }
