@@ -45,6 +45,25 @@ public class Room {
         this.west = west;
     }
     private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Enemy> enemies;
+
+    public ArrayList<Enemy> getEnemies(){
+        return enemies;
+    }
+    public void addEnemy(Enemy enemy){
+        enemies.add(enemy);
+    }
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
+    public Enemy findEnemy(String shortname){
+        for(Enemy enemy : enemies){
+            if(enemy.getShortName().equalsIgnoreCase(shortname)){
+                return enemy;
+            }
+        }
+        return null;
+    }
 
 
     public void addItem(Item item){

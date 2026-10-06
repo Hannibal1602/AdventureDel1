@@ -18,6 +18,7 @@ public class Player {
         return currentRoom;
     }
 
+
     public boolean move(String direction) {
         Room desiredRoom = switch (direction) {
             case "north" -> currentRoom.getNorth();
