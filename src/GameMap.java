@@ -55,12 +55,13 @@ public class GameMap {
             Food apple = new Food("apple", "a golden apple", 50);
             Food bread = new Food("bread", "a loaf of bread", 10);
             MeleeWeapon club = new MeleeWeapon("club", "a round wooden club", 20);
-            Enemy troll = new Enemy("troll", "a green swamp troll", 60, club, room6);
+
 
 
 
             room1.addItem(lamp);
             room2.addItem(sword);
+            room2.addItem(bread);
             room3.addItem(hat);
             room3.addItem(mushroom);
             room4.addItem(coins);
@@ -69,10 +70,12 @@ public class GameMap {
             room7.addItem(key);
             room8.addItem(crossbow);
             room9.addItem(apple);
-            room2.addItem(bread);
+
 
             Enemy monster = new Enemy("Monster", "A green zombie", 70, sword, room2);
             room2.addEnemy(monster);
+            Enemy troll = new Enemy("troll", "a green swamp troll", 60, club, room6);
+            room6.addEnemy(troll);
 
             return room1; // startrummet, som Adventure skal bruge
         }
