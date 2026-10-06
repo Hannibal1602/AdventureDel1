@@ -30,6 +30,8 @@ public class Enemy {
     public void hit(int damage){
         health -= damage;
     }
-
+    public String getDescription(){
+        return description;
+    }
 
 }
