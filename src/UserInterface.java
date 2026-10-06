@@ -49,6 +49,8 @@ public class UserInterface {
             drop(command.substring(5));
         } else if (command.startsWith("equip ")) {
             equip(command.substring(6));
+        } else if (command.startsWith("tp ")) {
+            tp(command.substring(3));
         } else {
             System.out.println("Unknown command");
         }
@@ -111,4 +113,13 @@ public class UserInterface {
     private void equip(String shortName) {
         System.out.println(adventure.equip(shortName));
     }
+    private void tp(String roomName) {
+        if (adventure.tp(roomName)) {
+            System.out.println("Teleported to " + roomName);
+            System.out.println(adventure.look());
+        } else {
+            System.out.println("That room does not exist");
+        }
+    }
+
 }

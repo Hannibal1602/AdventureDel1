@@ -53,4 +53,15 @@ public class Adventure {
         return player.isDead();
     }
 
+    public boolean tp(String roomName) {
+        Room room = map.findRoom(roomName);
+
+        if (room == null) {
+            return false;
+        }
+
+        player.setCurrentRoom(room);
+        return true;
+    }
+
 }
