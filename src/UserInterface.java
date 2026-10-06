@@ -93,6 +93,7 @@ public class UserInterface {
         System.out.println("inventory");
         System.out.println("help");
         System.out.println("health");
+        System.out.println("attack");
         System.out.println("eat");
         System.out.println("exit");
     }
