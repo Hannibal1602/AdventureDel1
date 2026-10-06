@@ -19,7 +19,6 @@ public class Player {
         return currentRoom;
     }
 
-
     public boolean move(String direction) {
         Room desiredRoom = switch (direction) {
             case "north" -> currentRoom.getNorth();
@@ -122,6 +121,11 @@ public class Player {
     public int getHealth() {
         return health;
     }
+
+    public boolean isDead() {
+        return health <= 0;
+    }
+
     public void setHealth(int health){
         this.health = health;
     }
@@ -167,12 +171,12 @@ public class Player {
                     + " at the empty air. " + equipped.getUsesLeftText();
         }
         Enemy enemy = currentRoom.getEnemies().get(0);
-        if(enemy.getHealth() < 0){
+        if(enemy.getHealth() <= 0){
             return "Enemy is already dead";
         }
         equipped.use();
         enemy.hit(equipped.getDamage());
-        if(enemy.getHealth() < 0){
+        if(enemy.getHealth() <= 0){
             currentRoom.removeEnemy(enemy);
             return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " and killed it";
         }

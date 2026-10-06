@@ -20,11 +20,16 @@ public class UserInterface {
                 case "inventory" -> System.out.println(adventure.inventory());
                 case "health" -> System.out.println(adventure.health());
                 case "help" -> printHelp();
-                case "attack" -> System.out.println(adventure.attack());
+                case "attack" -> {
+                    System.out.println(adventure.attack());
+                    if (adventure.isPlayerDead()) {
+                        System.out.println("Game over");
+                        running = false;
+                    }
+                }
                 case "exit" -> {
                     System.out.println("Goodbye");
                     running = false;
-
                 }
                 default -> handleCommandWithArgument(command);
             }
@@ -35,7 +40,7 @@ public class UserInterface {
         if (command.startsWith("go ")) {
             go(command.substring(3));
         }
-        else if(command.startsWith("eat ")){
+        else if (command.startsWith("eat ")) {
             eat(command.substring(4));
         }
         else if (command.startsWith("take ")) {
@@ -44,12 +49,9 @@ public class UserInterface {
             drop(command.substring(5));
         } else if (command.startsWith("equip ")) {
             equip(command.substring(6));
-        } else if (command.startsWith("tp ")) {
-            tp(command.substring(3));
         } else {
             System.out.println("Unknown command");
         }
-
     }
 
     private void go(String direction) {
@@ -85,6 +87,8 @@ public class UserInterface {
         System.out.println("go west");
         System.out.println("take <item>");
         System.out.println("drop <item>");
+        System.out.println("equip <item>");
+        System.out.println("attack");
         System.out.println("look");
         System.out.println("inventory");
         System.out.println("help");
@@ -101,22 +105,10 @@ public class UserInterface {
             case NOT_FOOD -> System.out.println("That item is not a food");
             case NOT_FOUND -> System.out.println("You can't find that item");
             case EATEN -> System.out.println("You ate the " + shortName);
-
         }
     }
+
     private void equip(String shortName) {
         System.out.println(adventure.equip(shortName));
     }
-
-    private void tp(String roomName){
-        if(adventure.tp(roomName)){
-            System.out.println("Telepored to " + roomName);
-            System.out.println(adventure.look());
-        }
-        else{
-            System.out.println("Did not find room");
-        }
-
-    }
 }
-
