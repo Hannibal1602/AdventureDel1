@@ -14,6 +14,7 @@ public class Player {
         currentRoom = room;
     }
 
+
     public Room getCurrentRoom() {
         return currentRoom;
     }

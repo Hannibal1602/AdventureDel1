@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+
 public class GameMap {
+
+    private ArrayList<Room> rooms = new ArrayList<>();
 
 
         public Room buildMap() {
@@ -11,6 +15,16 @@ public class GameMap {
             Room room7 = new Room("Room7", "Overgrown vines cover the stone floor.");
             Room room8 = new Room("Room8", "A spiral staircase winds upward.");
             Room room9 = new Room("Room9", "Gold coins glitter in the shadows.");
+
+            rooms.add(room1);
+            rooms.add(room2);
+            rooms.add(room3);
+            rooms.add(room4);
+            rooms.add(room5);
+            rooms.add(room6);
+            rooms.add(room7);
+            rooms.add(room8);
+            rooms.add(room9);
 
             // Række 1: forbundet vandret
             room1.setEast(room2);
@@ -78,6 +92,15 @@ public class GameMap {
             room6.addEnemy(troll);
 
             return room1; // startrummet, som Adventure skal bruge
+        }
+
+        public Room findRoom(String name){
+            for(Room room : rooms){
+                if(room.getName().equalsIgnoreCase(name)){
+                    return room;
+                }
+            }
+            return null;
         }
 
 }

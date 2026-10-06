@@ -15,6 +15,7 @@ public class Adventure {
         return player.look();
     }
 
+
     public String inventory() {
         return player.describeInventory();
     }
@@ -48,6 +49,15 @@ public class Adventure {
 
     public String attack() {
         return player.attack();
+    }
+    public boolean tp(String name){
+        Room room = map.findRoom(name);
+
+        if(room == null){
+            return false;
+        }
+        player.setCurrentRoom(room);
+        return true;
     }
 
 }
