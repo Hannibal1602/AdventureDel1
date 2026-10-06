@@ -68,7 +68,7 @@ public class GameMap {
             room9.addItem(apple);
             room2.addItem(bread);
 
-            Enemy monster = new Enemy("Monster", "A green zombie", 70, sword);
+            Enemy monster = new Enemy("Monster", "A green zombie", 70, sword, room2);
             room2.addEnemy(monster);
 
             return room1; // startrummet, som Adventure skal bruge
