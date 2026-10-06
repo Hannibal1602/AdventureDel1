@@ -28,6 +28,9 @@ public class Enemy {
     public int getHealth() {
         return health;
     }
+    public int getDamage(){
+        return weapon.getDamage();
+    }
 
     public void hit(int damage) {
         health -= damage;
@@ -39,5 +42,8 @@ public class Enemy {
 
     public Room getRoom() {
         return room;
+    }
+    public void attack(Player player){
+        player.setHealth(player.getHealth() - weapon.getDamage());
     }
 }
