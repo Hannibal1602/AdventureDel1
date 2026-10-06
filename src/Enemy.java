@@ -7,7 +7,7 @@ public class Enemy {
     private Weapon weapon;
     private Room room;
 
-    public Enemy(String shortName, String longName, String description, int health, Weapon weapon, Room room) {
+    public Enemy(String shortName, String longName, int health, Weapon weapon, Room room, String description) {
         this.shortName = shortName;
         this.longName = longName;
         this.health = health;
