@@ -56,9 +56,9 @@ public class Room {
     public void removeEnemy(Enemy enemy){
         enemies.remove(enemy);
     }
-    public Enemy findEnemy(String shortname){
+    public Enemy findEnemy(String shortName){
         for(Enemy enemy : enemies){
-            if(enemy.getShortName().equalsIgnoreCase(shortname)){
+            if(enemy.getShortName().equalsIgnoreCase(shortName)){
                 return enemy;
             }
         }
