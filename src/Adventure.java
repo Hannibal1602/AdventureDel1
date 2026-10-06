@@ -49,5 +49,8 @@ public class Adventure {
     public String attack() {
         return player.attack();
     }
+    public boolean isPlayerDead() {
+        return player.isDead();
+    }
 
 }
