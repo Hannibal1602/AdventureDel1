@@ -176,6 +176,6 @@ public class Player {
             return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " and killed it";
         }
         enemy.attack(this);
-        return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " " + enemy.getHealth() + " HP remaining." + " The " + enemy.getLongName() + " attacks you for " + enemy.getDamage() + " HP";
+        return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " " + enemy.getHealth() + " HP remaining." + " The " + enemy.getShortName() + " attacks you for " + enemy.getDamage() + " HP";
     }
 }
