@@ -45,7 +45,7 @@ public class Room {
         this.west = west;
     }
     private ArrayList<Item> items = new ArrayList<>();
-    private ArrayList<Enemy> enemies;
+    private ArrayList<Enemy> enemies = new ArrayList<>();
 
     public ArrayList<Enemy> getEnemies(){
         return enemies;
