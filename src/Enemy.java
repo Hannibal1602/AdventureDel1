@@ -5,12 +5,15 @@ public class Enemy {
     private String description;
     private int health;
     private Weapon weapon;
+    private Room room;
 
-    public Enemy(String shortName, String longName, int health, Weapon weapon) {
+    public Enemy(String shortName, String longName, int health, Weapon weapon, Room room) {
         this.shortName = shortName;
         this.longName = longName;
         this.health = health;
         this.weapon = weapon;
+        this.room = room;
+
     }
 
     public String getShortName() {
