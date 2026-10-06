@@ -54,6 +54,9 @@ public class GameMap {
             RangedWeapon crossbow = new RangedWeapon("crossbow", "a wooden crossbow", 20,5);
             Food apple = new Food("apple", "a golden apple", 50);
             Food bread = new Food("bread", "a loaf of bread", 10);
+            MeleeWeapon club = new MeleeWeapon("club", "a round wooden club", 20);
+            Enemy troll = new Enemy("troll", "a green swamp troll", 60, club, room6);
+
 
 
             room1.addItem(lamp);

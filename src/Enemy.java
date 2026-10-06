@@ -33,5 +33,7 @@ public class Enemy {
     public String getDescription(){
         return description;
     }
-
+    public Room room(){
+        return room;
+    }
 }
