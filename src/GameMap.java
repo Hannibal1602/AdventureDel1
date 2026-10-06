@@ -53,7 +53,7 @@ public class GameMap {
             Item key = new Item("key", "an old rusty key");
             RangedWeapon crossbow = new RangedWeapon("crossbow", "a wooden crossbow", 20,5);
             Food apple = new Food("apple", "a golden apple", 50);
-            Food bread = new Food("bread", "a loaf og bread", 10);
+            Food bread = new Food("bread", "a loaf of bread", 10);
 
 
             room1.addItem(lamp);
