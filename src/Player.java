@@ -121,6 +121,9 @@ public class Player {
     public int getHealth() {
         return health;
     }
+    public void setHealth(int health){
+        this.health = health;
+    }
 
     public String describeHealth() {
         String text;
@@ -172,6 +175,7 @@ public class Player {
             currentRoom.removeEnemy(enemy);
             return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " and killed it";
         }
-        return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " " + enemy.getHealth() + " HP remaining";
+        enemy.attack(this);
+        return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " " + enemy.getHealth() + " HP remaining." + " The " + enemy.getLongName() + " attacks you for " + enemy.getDamage() + " HP";
     }
 }
