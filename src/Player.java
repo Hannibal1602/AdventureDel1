@@ -158,12 +158,20 @@ public class Player {
             return "Your weapon is out of ammunition";
         }
         if(currentRoom.getEnemies().isEmpty()){
-            return "There are no enemies to attack here";
+            equipped.use();
+            return "You " + equipped.getAttackVerb() + " " + equipped.getLongName()
+                    + " at the empty air. " + equipped.getUsesLeftText();
         }
         Enemy enemy = currentRoom.getEnemies().get(0);
-
+        if(enemy.getHealth() < 0){
+            return "Enemy is already dead";
+        }
         equipped.use();
-        return "You " + equipped.getAttackVerb() + " " + equipped.getLongName()
-                + " at the empty air. " + equipped.getUsesLeftText();
+        enemy.hit(equipped.getDamage());
+        if(enemy.getHealth() < 0){
+            currentRoom.removeEnemy(enemy);
+            return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " and killed it";
+        }
+        return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " " + enemy.getHealth() + " HP remaining";
     }
 }
