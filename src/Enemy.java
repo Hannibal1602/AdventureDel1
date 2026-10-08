@@ -16,6 +16,15 @@ public class Enemy {
         this.description = description;
 
     }
+    public String dropWeapon() {
+        if (weapon == null) {
+            return "";
+        }
+        Weapon dropped = weapon;
+        room.addItem(dropped);
+        weapon = null;
+        return " It dropped " + dropped.getLongName() + ".";
+    }
 
     public String getShortName() {
         return shortName;
@@ -47,3 +56,4 @@ public class Enemy {
         player.setHealth(player.getHealth() - weapon.getDamage());
     }
 }
+
