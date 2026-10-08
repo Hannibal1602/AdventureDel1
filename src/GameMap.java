@@ -58,17 +58,17 @@ public class GameMap {
             room5.setSouth(room8);
 
             Item lamp = new Item("lamp", "a shiny brass lamp");
-            MeleeWeapon sword = new MeleeWeapon("sword", "a big sword", 30);
+            MeleeWeapon sword = new MeleeWeapon("sword", "a big sword", 40);
             Item hat = new Item("hat", "a magical hat");
             Food mushroom = new Food("mushroom", "a glowing mushroom",-30);
             Item coins = new Item("coins", "a stack of gold coins");
-            Food beef = new Food("beef", "a juicy beefsteak", 30);
+            Food beef = new Food("beef", "a juicy beefsteak", 45);
             Item diamonds = new Item("diamonds", "a chest full of diamonds");
             Item key = new Item("key", "an old rusty key");
             RangedWeapon crossbow = new RangedWeapon("crossbow", "a wooden crossbow", 20,5);
-            Food apple = new Food("apple", "a golden apple", 50);
-            Food bread = new Food("bread", "a loaf of bread", 10);
-            MeleeWeapon club = new MeleeWeapon("club", "a round wooden club", 75);
+            Food apple = new Food("apple", "a golden apple", 60);
+            Food bread = new Food("bread", "a loaf of bread", 20);
+            Weapon club = new MeleeWeapon("club", "a round wooden club", 55);
             Weapon bone = new MeleeWeapon("bone", "a gnawed bone", 45);
             Weapon spear = new MeleeWeapon("spear", "an ancient golden spear", 50);
 
@@ -90,7 +90,7 @@ public class GameMap {
 
             Enemy monster = new Enemy("Monster", "A green zombie", 50, bone, room2, "You have to kill the zombie");
             room2.addEnemy(monster);
-            Enemy troll = new Enemy("troll", "a green swamp troll", 70, club, room6, "You have to kill to troll");
+            Enemy troll = new Enemy("troll", "a green swamp troll", 60, club, room6, "You have to kill to troll");
             room6.addEnemy(troll);
             Enemy skeleton = new Enemy("skeleton", "a cursed skeleton king", 150, spear, room5, "You have reached the final boss, kill him to escape the maze");
             room5.addEnemy(skeleton);
