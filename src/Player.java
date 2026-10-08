@@ -190,11 +190,6 @@ public class Player {
         if (!equipped.canUse()) {
             return "Your weapon is out of ammunition";
         }
-        if(currentRoom.getEnemies().isEmpty()){
-            equipped.use();
-            return "You " + equipped.getAttackVerb() + " " + equipped.getLongName()
-                    + " at the empty air. " + equipped.getUsesLeftText();
-        }
         Enemy enemy = currentRoom.findEnemy(shortName);
 
         if(enemy == null){
