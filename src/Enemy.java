@@ -55,5 +55,6 @@ public class Enemy {
     public void attack(Player player){
         player.setHealth(player.getHealth() - weapon.getDamage());
     }
+    
 }
 

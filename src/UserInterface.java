@@ -69,9 +69,9 @@ public class UserInterface {
     private void take(String shortName) {
         String taken = adventure.take(shortName);
         if (taken != null) {
-            System.out.println("You took " + taken);
+            System.out.println("You have taken " + taken);
         } else {
-            System.out.println("There is no such item");
+            System.out.println("There is nothing like " + shortName + " to take around here");
         }
     }
 
@@ -80,7 +80,7 @@ public class UserInterface {
         if (dropped != null) {
             System.out.println("You dropped " + dropped);
         } else {
-            System.out.println("There is no such item");
+            System.out.println("You dont have anything like " + shortName + " in your inventory");
         }
     }
 
