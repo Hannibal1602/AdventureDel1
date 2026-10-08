@@ -1,3 +1,4 @@
+import java.lang.classfile.MethodElement;
 import java.util.ArrayList;
 
 public class GameMap {
@@ -62,13 +63,14 @@ public class GameMap {
             Item hat = new Item("hat", "a magical hat");
             Food mushroom = new Food("mushroom", "a glowing mushroom",-30);
             Item coins = new Item("coins", "a stack of gold coins");
-            Food beef = new Food("beef", "a juicy beefsteak", 30);
+            Food steak = new Food("beef", "a juicy beefsteak", 30);
             Item diamonds = new Item("diamonds", "a chest full of diamonds");
             Item key = new Item("key", "an old rusty key");
             RangedWeapon crossbow = new RangedWeapon("crossbow", "a wooden crossbow", 20,5);
             Food apple = new Food("apple", "a golden apple", 50);
             Food bread = new Food("bread", "a loaf of bread", 10);
             MeleeWeapon club = new MeleeWeapon("club", "a round wooden club", 20);
+            MeleeWeapon spear = new MeleeWeapon("spear", "the king's golden spear", 50);
 
 
 
@@ -79,7 +81,7 @@ public class GameMap {
             room3.addItem(hat);
             room3.addItem(mushroom);
             room4.addItem(coins);
-            room6.addItem(beef);
+            room6.addItem(steak);
             room5.addItem(diamonds);
             room7.addItem(key);
             room8.addItem(crossbow);
@@ -90,6 +92,8 @@ public class GameMap {
             room2.addEnemy(monster);
             Enemy troll = new Enemy("troll", "a green swamp troll", 60, club, room6, "You have to kill to troll");
             room6.addEnemy(troll);
+            Enemy Skeleton = new Enemy("skeleton","a ancient skelton king", 150, spear, room5, "you ´have reached the final boss, kill him to escape the maze");
+
 
             return room1; // startrummet, som Adventure skal bruge
         }
