@@ -92,7 +92,7 @@ public class GameMap {
             room2.addEnemy(monster);
             Enemy troll = new Enemy("troll", "a green swamp troll", 60, club, room6, "You have to kill to troll");
             room6.addEnemy(troll);
-            Enemy skeleton = new Enemy("skeleton", "an achient skeleton king", 100, spear, room5, "you have reached the final boss, kill him to escape the maze");
+            Enemy skeleton = new Enemy("skeleton", "an achient skeleton king", 150, spear, room5, "you have reached the final boss, kill him to escape the maze");
             room5.addEnemy(skeleton);
             return room1; // startrummet, som Adventure skal bruge
         }
