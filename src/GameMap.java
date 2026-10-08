@@ -68,9 +68,9 @@ public class GameMap {
             RangedWeapon crossbow = new RangedWeapon("crossbow", "a wooden crossbow", 20,5);
             Food apple = new Food("apple", "a golden apple", 60);
             Food bread = new Food("bread", "a loaf of bread", 20);
-            Weapon club = new MeleeWeapon("club", "a round wooden club", 55);
+            Weapon club = new MeleeWeapon("club", "a round wooden club", 50);
             Weapon bone = new MeleeWeapon("bone", "a gnawed bone", 45);
-            Weapon spear = new MeleeWeapon("spear", "an ancient golden spear", 50);
+            Weapon spear = new MeleeWeapon("spear", "an ancient golden spear", 49);
 
 
 
@@ -90,7 +90,7 @@ public class GameMap {
 
             Enemy monster = new Enemy("Monster", "A green zombie", 50, bone, room2, "You have to kill the zombie");
             room2.addEnemy(monster);
-            Enemy troll = new Enemy("troll", "a green swamp troll", 60, club, room6, "You have to kill to troll");
+            Enemy troll = new Enemy("troll", "a green swamp troll", 50, club, room6, "You have to kill to troll");
             room6.addEnemy(troll);
             Enemy skeleton = new Enemy("skeleton", "a cursed skeleton king", 150, spear, room5, "You have reached the final boss, kill him to escape the maze");
             room5.addEnemy(skeleton);
