@@ -70,6 +70,7 @@ public class GameMap {
             Food bread = new Food("bread", "a loaf of bread", 10);
             MeleeWeapon club = new MeleeWeapon("club", "a round wooden club", 75);
             Weapon bone = new MeleeWeapon("bone", "a gnawed bone", 45);
+            Weapon spear = new MeleeWeapon("spear", "an ancient golden spear", 50);
 
 
 
@@ -91,6 +92,8 @@ public class GameMap {
             room2.addEnemy(monster);
             Enemy troll = new Enemy("troll", "a green swamp troll", 70, club, room6, "You have to kill to troll");
             room6.addEnemy(troll);
+            Enemy skeleton = new Enemy("skeleton", "a cursed skeleton king", 150, spear, room5, "You have reached the final boss, kill him to escape the maze");
+            room5.addEnemy(skeleton);
 
             return room1; // startrummet, som Adventure skal bruge
         }
