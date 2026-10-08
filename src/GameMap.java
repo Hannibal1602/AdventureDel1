@@ -88,7 +88,7 @@ public class GameMap {
             room9.addItem(apple);
 
 
-            Enemy monster = new Enemy("Monster", "A green zombie", 70, sword, room2, "You have to kill the zombie");
+            Enemy monster = new Enemy("monster", "A green monster", 70, sword, room2, "You have to kill the monster");
             room2.addEnemy(monster);
             Enemy troll = new Enemy("troll", "a green swamp troll", 60, club, room6, "You have to kill to troll");
             room6.addEnemy(troll);
