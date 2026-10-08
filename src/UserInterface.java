@@ -49,6 +49,8 @@ public class UserInterface {
             drop(command.substring(5));
         } else if (command.startsWith("equip ")) {
             equip(command.substring(6));
+        } else if (command.startsWith("attack ")) {
+            attack(command.substring(7));
         } else if (command.startsWith("tp ")) {
             tp(command.substring(3));
         } else {
@@ -119,6 +121,13 @@ public class UserInterface {
             System.out.println(adventure.look());
         } else {
             System.out.println("That room does not exist");
+        }
+    }
+    private void attack(String shortName){
+        System.out.println(adventure.attack(shortName));
+
+        if(adventure.isPlayerDead()){
+            System.out.println("Game Over");
         }
     }
 

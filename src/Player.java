@@ -183,4 +183,34 @@ public class Player {
         enemy.attack(this);
         return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " " + enemy.getHealth() + " HP remaining." + " The " + enemy.getShortName() + " attacks you for " + enemy.getDamage() + " HP";
     }
+    public String attack(String shortName) {
+        if (equipped == null) {
+            return "You have no weapon equipped";
+        }
+        if (!equipped.canUse()) {
+            return "Your weapon is out of ammunition";
+        }
+        if(currentRoom.getEnemies().isEmpty()){
+            equipped.use();
+            return "You " + equipped.getAttackVerb() + " " + equipped.getLongName()
+                    + " at the empty air. " + equipped.getUsesLeftText();
+        }
+        Enemy enemy = currentRoom.findEnemy(shortName);
+
+        if(enemy == null){
+            return "There is no enemy in here named " + shortName;
+        }
+
+        if(enemy.getHealth() <= 0){
+            return "Enemy is already dead";
+        }
+        equipped.use();
+        enemy.hit(equipped.getDamage());
+        if(enemy.getHealth() <= 0){
+            currentRoom.removeEnemy(enemy);
+            return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " and killed it";
+        }
+        enemy.attack(this);
+        return "You " + equipped.getAttackVerb() + " your weapon at a " + enemy.getLongName() + " " + enemy.getHealth() + " HP remaining." + " The " + enemy.getShortName() + " attacks you for " + enemy.getDamage() + " HP";
+    }
 }

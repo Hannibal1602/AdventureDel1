@@ -49,6 +49,9 @@ public class Adventure {
     public String attack() {
         return player.attack();
     }
+    public String attack(String shortName) {
+        return player.attack(shortName);
+    }
     public boolean isPlayerDead() {
         return player.isDead();
     }
@@ -63,5 +66,6 @@ public class Adventure {
         player.setCurrentRoom(room);
         return true;
     }
+
 
 }
